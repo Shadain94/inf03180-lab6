@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="js/angular.min.js"></script>
+<script src="/js/angular.min.js"></script>
+<link rel="stylesheet" href="/css/help.css" type="text/css" />
 <body>
 
 <script>
 var app = angular.module("myShoppingList", []); 
 app.controller("myCtrl", function($scope) {
-    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.products = ["Eggs", "Bread", "Cheese", "Sausages"];
     $scope.addItem = function () {
         $scope.errortext = "";
         if (!$scope.addMe) {return;}
@@ -23,26 +24,26 @@ app.controller("myCtrl", function($scope) {
     }
 });
 </script>
-
-<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl"  style="max-width:400px;">
+<div id= "big">
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl">
   
-    <h3>My Shopping List</h3>
+    <h3 class="ha">My Shopping List</h3>
 
-  <ul >
+  <ul class="ha" >
     <li ng-repeat="x in products" >{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;">×</span></li>
   </ul>
   <div>
     <div>
-      <div>
+      <div id="box">
         <input placeholder="Add shopping items here" ng-model="addMe" >
       </div>
-      <div>
+      <div id="next">
         <button ng-click="addItem()">Add</button>
       </div>
     </div>
     <p>{{errortext}}</p>
   </div>
 </div>
-
+</div>
 </body>
 </html>
